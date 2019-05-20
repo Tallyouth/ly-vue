@@ -3,3 +3,8 @@
 ### vue练手项目
   - 初始化  
    `vue init webpack`
+
+
+### 启动
+  `cnpm install`
+  `cnpm run dev`
