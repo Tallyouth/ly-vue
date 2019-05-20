@@ -1,39 +1,23 @@
 <template>
   <div id="app">
-    <router-view />
+    <img src="./assets/logo.png">
+    <router-view/>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'App',
-    data() {
-      return {
-        message: 'hello vue'
-      }
-    },
-  }
+export default {
+  name: 'App'
+}
 </script>
 
 <style>
-  #app {
-    margin: 0
-  }
-
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-    background-color: #fbfcfd;
-  }
-
-  .clearfix::after,
-  .clearfix::before {
-    content: " ";
-    display: table;
-  }
-
-  .clearfix::after {
-    clear: both;
-  }
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
 </style>

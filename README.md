@@ -1,10 +1,23 @@
-## *狗先生和小灰灰的秘密仓库*
-
-### vue练手项目
-  - 初始化  
-   `vue init webpack`
-
-
-### 启动
-  `cnpm install`
-  `cnpm run dev`
+# 标注工具
+## 安装
+### 建立虚拟环境
+```
+virtualenv env
+source env/bin/activate
+```
+### django
+```
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py createsuperuser
+```
+### vue
+```
+cd frontend
+cnpm install
+cnpm run build
+```
+## 启动
+```
+python manage.py runserver 8000
+```
