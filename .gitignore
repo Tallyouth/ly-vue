@@ -94,3 +94,7 @@ db.sqlite3
 .DS_store
 local_settings.py
 .history
+
+
+# vue
+/node_modules/
