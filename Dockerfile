@@ -15,7 +15,9 @@ WORKDIR /root/ly-vue
 ADD . /root/ly-vue
 
 # Using pip:
-RUN python3 -m pip install -r requirements.txt
+RUN pip install --upgrade setuptools && \
+    python -m pip install --upgrade pip && \
+    python3 -m pip install -r requirements.txt
 
 WORKDIR /root/ly-vue/mionter
 CMD ["python3", "manage.py", "runserver"]
