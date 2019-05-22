@@ -86,7 +86,7 @@
     computed: {
       newTable() {
         return this.tableData.filter((ndata) => {
-          return ndata.name.match(this.nname) && ndata.date.match(this.ndate)
+          return ndata.name.match(this.nname) && ndata.updated_at.match(this.ndate)
         })
       }
     },

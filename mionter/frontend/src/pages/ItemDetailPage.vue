@@ -31,14 +31,14 @@
         <el-table-column label="日期" width="180">
           <template slot-scope="scope">
             <i class="el-icon-time"></i>
-            <span style="margin-left: 10px">{{ scope.row.date }}</span>
+            <span style="margin-left: 10px">{{ scope.row.updated_at }}</span>
           </template>
         </el-table-column>
         <el-table-column label="姓名" width="180">
           <template slot-scope="scope">
             <el-popover trigger="hover" placement="top">
               <p>姓名: {{ scope.row.name }}</p>
-              <p>住址: {{ scope.row.address }}</p>
+              <p>住址: {{ scope.row.updated_at }}</p>
               <div slot="reference" class="name-wrapper">
                 <el-tag size="medium">{{ scope.row.name }}</el-tag>
               </div>
@@ -71,7 +71,7 @@
         getTasksList() {
           getProjectTypes().then((res) => {
             this.tableData = res.data
-            console.log(tableData)
+            console.log(this.tableData)
           }).catch(function (error) {
             console.log(error);
           });
@@ -85,9 +85,9 @@
       },
       computed: {
         newTable() {
-          return this.tableData.filter((ndata) => {
-            return ndata.name.match(this.nname) && ndata.date.match(this.ndate)
-          })
+          // return this.tableData.filter((ndata) => {
+          //   return ndata.name.match(this.nname) && ndata.date.match(this.ndate)
+          // })
         }
       },
       mounted() {
