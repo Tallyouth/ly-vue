@@ -90,8 +90,8 @@ ENV/
 # add by personer
 db.sqlite3
 .idea
-.vscode
+.vscode/
+.history
 .DS_store
 local_settings.py
 .history
-
