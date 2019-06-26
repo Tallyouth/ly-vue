@@ -94,4 +94,3 @@ db.sqlite3
 .history
 .DS_store
 local_settings.py
-.history

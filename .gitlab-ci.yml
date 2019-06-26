@@ -1,0 +1,20 @@
+variables:
+  DEVELOP_PROJECT_PATH: "/root/mionter"
+  # RELEASE_PROJECT_PATH: "/data/gitlab/web_projects/yunfu/labelme"
+stages:
+    - deploy
+deploy:release:
+    stage: deploy
+    script:
+      - cd $DEVELOP_PROJECT_PATH
+      - git pull
+      - source activate mionter
+      - pip install -r requirements.txt
+      - python manage.py migrate
+      - cd $DEVELOP_PROJECT_PATH/frontend
+      - cnpm install
+      - cnpm run build
+    only:
+      - master
+    tags:
+      - mionter

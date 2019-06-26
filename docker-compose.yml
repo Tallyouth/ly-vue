@@ -2,7 +2,8 @@ version: '2.1'
 
 services:
   ly-vue:
-    image: ly-vue
+    image: mionter
     build: .
     ports:
       - 8000:8000
+    command: python manage.py runserver 0.0.0.0:8000
