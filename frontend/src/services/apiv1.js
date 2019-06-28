@@ -5,7 +5,7 @@ import req from '@/utils/axiosClient'
 // 项目类别列表
 export const getProjectTypes = () => req.get(`/v1/project_types`)
 // 项目列表
-export const getProjectList = (typeId) => req.get(`v1/projects?type_id=${typeId}`)
+export const getProjectList = (typeId,page) => req.get(`v1/projects?page=${page}&type_id=${typeId}`)
 // 修改项目详情
 export const updateProject = (projectId, itemInfo, csrftoken) => req.put(`v1/project/${projectId}`, itemInfo,
     {

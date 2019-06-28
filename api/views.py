@@ -40,7 +40,7 @@ class ProcessMit(APIView):
 
 
 class CustomPageNumberPagination(PageNumberPagination):
-    page_size = 100
+    page_size = 7
     page_size_query_param = 'page_size'
     max_page_size = 1000
 
@@ -52,6 +52,8 @@ class ProjectTypeList(generics.ListAPIView):
 
 class ProjectList(generics.ListAPIView):
     serializer_class = ProjectSerializer
+    pagination_class = CustomPageNumberPagination
+
 
     def get_queryset(self):
         type_id = self.request.query_params.get('type_id')
