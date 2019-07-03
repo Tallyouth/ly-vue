@@ -102,7 +102,7 @@
     </div>
     <div class="block">
       <el-pagination @current-change="handleCurrentChange"
-        layout="prev, pager, next"
+        layout="total, prev, pager, next"
         :page-size="pageSize"
         :total="total">
       </el-pagination>
@@ -132,7 +132,8 @@ export default {
       // 分页
       pageSize: 7,
       pageNum: 1,
-      total:0
+      currentpage: 1,
+      total: 0
     }
   },
   filters: {
@@ -143,8 +144,7 @@ export default {
   },
   methods: {
     getTasksList () {
-      getProjectList(!this.typeId ? 1 : this.typeId, 1).then((res) => {
-        console.log(res)
+      getProjectList(!this.typeId ? 1 : this.typeId, this.currentpage ? this.currentpage : 1).then((res) => {
         this.tableData = res.data.results
         this.total = res.data.count
       }).catch(function (error) {
@@ -184,10 +184,10 @@ export default {
         id: this.form.id
       }
       var csrftoken = getCookie('csrftoken');
-      console.log(csrftoken)
+      console.log(this.currentpage)
       updateProject(projectId, itemInfo, csrftoken).then((res) => {
-        getProjectList(!this.typeId ? 1 : this.typeId).then((res) => {
-          this.tableData = res.data
+        getProjectList(!this.typeId ? 1 : this.typeId, this.currentpage).then((res) => {
+          this.tableData = res.data.results
         }).catch(function (error) {
           console.log(error);
         });
@@ -198,7 +198,7 @@ export default {
     // 改变页码时，val是页码
     handleCurrentChange (val) {
       getProjectList(!this.typeId ? 1 : this.typeId, val ? val : 1).then((res) => {
-        console.log(res)
+        this.currentpage = val
         this.tableData = res.data.results
       }).catch(function (error) {
         console.log(error);
@@ -234,14 +234,34 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.hello {
-  padding: 0px 10px;
-}
+  .hello {
+    padding: 0px 10px;
+    height: 100%;
+    max-height: 100%;
+  }
 
-.com_head {
-  background: lightgray;
-  padding: 15px 10px;
-  margin: 30px 0;
-  border-radius: 3px;
-}
+  .com_head {
+    background: lightgray;
+    padding: 15px 10px;
+    margin: 30px 0;
+    border-radius: 3px;
+    position: 2%;
+  }
+
+  .el-icon-success {
+    color: rgb(17, 221, 95);
+  }
+
+  .el-icon-error {
+    color: rgb(240, 14, 14);
+  }
+
+  .block {
+    max-width: 1000px;
+    width: 100%;
+    margin: 30px;
+    text-align: center;
+    position: fixed;
+    bottom:0;
+  }
 </style>

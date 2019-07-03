@@ -15,8 +15,8 @@ export default new Router({
     },
     {
       path: '/',
-      name: 'project',
-      component: TableCrawle
+      name: 'ItemDetailPaged',
+      component: ItemDetailPage
     },
   ]
 })

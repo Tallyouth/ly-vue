@@ -7,12 +7,36 @@
         <li>帮助</li>
       </ul>
     </header>
-    <div class="div_left">
+    <!-- <div class="div_left">
       <ul class="left_ul" v-for="(btn,index) in btns" :key="index">
-        <li v-bind:index=btn.name @click="goIndex(index, btn.id)" :class="nactive==index?'left_ul_active':''">
-          {{btn.name}}</li>
+        <el-menu-item v-bind:index=btn.name @click="goIndex(index, btn.id)" :class="nactive==index?'left_ul_active':''">
+          {{btn.name}}</el-menu-item>
       </ul>
-    </div>
+    </div> -->
+    <el-row class="div_left">
+      <el-menu default-active="2" class="el-menu-vertical-demo">
+        <el-submenu index="1">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span>导航一</span>
+          </template>
+          <!-- <el-menu-item index="1-1">选项1</el-menu-item> -->
+          <ul class="left_ul" v-for="(btn,index) in btns" :key="index">
+            <el-menu-item v-bind:index=btn.name @click="goIndex(index, btn.id)"
+              :class="nactive==index?'left_ul_active':''">
+              {{btn.name}}</el-menu-item>
+          </ul>
+        </el-submenu>
+        <el-menu-item index="2">
+          <i class="el-icon-menu"></i>
+          <span slot="title">导航二</span>
+        </el-menu-item>
+        <el-menu-item index="3">
+          <i class="el-icon-setting"></i>
+          <span slot="title">导航三</span>
+        </el-menu-item>
+      </el-menu>
+    </el-row>
     <div class="div_right">
       <router-view />
     </div>
@@ -105,6 +129,7 @@
   #app>div {
     float: left;
     height: 100%;
+    border: none;
   }
 
   .div_left {
