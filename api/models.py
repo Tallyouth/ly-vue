@@ -23,6 +23,7 @@ class Project(models.Model):
     """项目表"""
     id = models.AutoField(primary_key=True)  # 自增主键
     name = models.CharField(verbose_name='项目名', max_length=100)  # 项目名
+    dbname = models.CharField(verbose_name="表名称", max_length=1000, blank=True, null=True)
     type = models.ForeignKey(
         ProjectType,
         verbose_name='项目类别',

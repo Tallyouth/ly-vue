@@ -3,7 +3,7 @@
 # OS Support also exists for jessie & stretch (slim and full).
 # See https://hub.docker.com/r/library/python/ for all supported Python
 # tags from Docker Hub.
-FROM python
+FROM python:3.6
 
 # If you prefer miniconda:
 #FROM continuumio/miniconda3
@@ -11,11 +11,10 @@ FROM python
 LABEL Name=mionter Version=0.0.1
 EXPOSE 8000
 
-WORKDIR /root/ly-vue
-ADD . /root/ly-vue
+# Define mountable directories.
+VOLUME ["/root/mionter", "/root/mionter"]
+
+WORKDIR /root/mionter
 
 # Using pip:
-RUN python3 -m pip install -r requirements.txt
 
-WORKDIR /root/ly-vue/mionter
-CMD ["python3", "manage.py", "runserver"]

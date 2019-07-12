@@ -7,33 +7,30 @@
         <li>帮助</li>
       </ul>
     </header>
-    <!-- <div class="div_left">
-      <ul class="left_ul" v-for="(btn,index) in btns" :key="index">
-        <el-menu-item v-bind:index=btn.name @click="goIndex(index, btn.id)" :class="nactive==index?'left_ul_active':''">
-          {{btn.name}}</el-menu-item>
-      </ul>
-    </div> -->
     <el-row class="div_left">
-      <el-menu default-active="2" class="el-menu-vertical-demo">
-        <el-submenu index="1">
+      <el-menu default-active="/project" router class="el-menu-vertical-demo">
+        <el-submenu index="crawler">
           <template slot="title">
-            <i class="el-icon-location"></i>
-            <span>导航一</span>
+            <i class="el-icon-menu"></i>
+            <span>爬虫项目</span>
           </template>
           <!-- <el-menu-item index="1-1">选项1</el-menu-item> -->
           <ul class="left_ul" v-for="(btn,index) in btns" :key="index">
-            <el-menu-item v-bind:index=btn.name @click="goIndex(index, btn.id)"
-              :class="nactive==index?'left_ul_active':''">
+            <el-menu-item v-bind:index=btn.name @click="goIndex(index, btn.id)">
               {{btn.name}}</el-menu-item>
           </ul>
         </el-submenu>
-        <el-menu-item index="2">
-          <i class="el-icon-menu"></i>
-          <span slot="title">导航二</span>
-        </el-menu-item>
-        <el-menu-item index="3">
+        <el-submenu index="data">
+          <template slot="title">
+            <i class="el-icon-coin"></i>
+            <span>数据查看</span>
+          </template>
+          <el-menu-item index="/data/all">总览</el-menu-item>
+          <el-menu-item index="/data/detail">详情</el-menu-item>
+        </el-submenu>
+        <el-menu-item index="/setting">
           <i class="el-icon-setting"></i>
-          <span slot="title">导航三</span>
+          <span slot="title">系统配置</span>
         </el-menu-item>
       </el-menu>
     </el-row>
@@ -50,7 +47,7 @@
     data() {
       return {
         btns: [],
-        nactive: 0,
+        nactive: -1,
       }
     },
     methods: {
@@ -157,11 +154,6 @@
     position: relative;
     cursor: pointer;
     white-space: nowrap;
-  }
-
-  .left_ul_active {
-    background: #ecf5ff;
-    color: #409eff;
   }
 
   .bread {

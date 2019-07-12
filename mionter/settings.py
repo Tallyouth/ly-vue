@@ -156,20 +156,20 @@ JWT_AUTH = {
 REST_FRAMEWORK_TOKEN_EXPIRE_MINUTES = 60
 #
 
-# REST_FRAMEWORK = {
-#     'DEFAULT_PERMISSION_CLASSES': (
-#         'rest_framework.permissions.IsAuthenticated',
-#     ),
-#     'DEFAULT_AUTHENTICATION_CLASSES': (
-#         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
-#         'rest_framework.authentication.TokenAuthentication',
-#         'rest_framework.authentication.BasicAuthentication',
-#     ),
-#     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.URLPathVersioning',
-#     'DATETIME_FORMAT': "%Y-%m-%d %H:%M:%S",
-#     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-#     'PAGE_SIZE': None,
-# }
+REST_FRAMEWORK = {
+    # 'DEFAULT_PERMISSION_CLASSES': (
+    #     'rest_framework.permissions.IsAuthenticated',
+    # ),
+    # 'DEFAULT_AUTHENTICATION_CLASSES': (
+    #     'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+    #     'rest_framework.authentication.TokenAuthentication',
+    #     'rest_framework.authentication.BasicAuthentication',
+    # ),
+    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.URLPathVersioning',
+    'DATETIME_FORMAT': "%Y-%m-%d %H:%M:%S",
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': None,
+}
 
 # 跨域增加忽略
 CORS_ALLOW_CREDENTIALS = True

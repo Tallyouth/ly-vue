@@ -183,9 +183,9 @@ export default {
         desc: this.form.desc,
         id: this.form.id
       }
-      var csrftoken = getCookie('csrftoken');
+      // var csrftoken = getCookie('csrftoken');
       console.log(this.currentpage)
-      updateProject(projectId, itemInfo, csrftoken).then((res) => {
+      updateProject(projectId, itemInfo).then((res) => {
         getProjectList(!this.typeId ? 1 : this.typeId, this.currentpage).then((res) => {
           this.tableData = res.data.results
         }).catch(function (error) {

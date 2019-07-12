@@ -6,6 +6,8 @@ var axiosInstance = axios.create({
  // 一、请求拦截器 忽略
 axiosInstance.interceptors.request.use(config => {
   let token = localStorage.getItem('token')
+  // let regex = /.*csrftoken=([^;.]*).*$/; // 用于从cookie中匹配 csrftoken值
+  // config.headers['X-CSRFToken'] = document.cookie.match(regex) === null ? null : document.cookie.match(regex)[1];
   if (token) {
     config.headers.authorization = 'JWT ' + token
   }
